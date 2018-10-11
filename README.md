@@ -1,6 +1,9 @@
 # ConfexConfigProvider
 
-**TODO: Add description**
+A [runtime configuration
+provider](https://hexdocs.pm/distillery/extensibility/config_providers.html)
+that uses [Confex](https://github.com/Nebo15/confex) and works with
+Distillery 2.
 
 ## Installation
 
@@ -15,7 +18,24 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/confex_config_provider](https://hexdocs.pm/confex_config_provider).
+## Usage
+
+Put this in in the `release :myapp` section of `rel/config.exs`:
+
+```elixir
+  set(config_providers: [ConfexConfigProvider])
+```
+
+Then, make sure that if the app is not in a release, Confex tuples are still
+resolved. E.g. you could put this at the top of you `application.ex`'s
+`start/2` function:
+
+```elixir
+unless ConfexConfigProvider.release_mode?() do
+  ConfexConfigProvider.configure_applications()
+end
+```
+
+Documentation is available at
+[https://hexdocs.pm/confex_config_provider](https://hexdocs.pm/confex_config_provider).
 

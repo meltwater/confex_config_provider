@@ -4,10 +4,15 @@ defmodule ConfexConfigProvider.MixProject do
   def project do
     [
       app: :confex_config_provider,
+      description: description(),
+      package: package(),
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      docs: [main: "readme", extras: ["README.md"]],
+      deps: deps(),
+      source_url: "https://github.com/meltwater/confex_config_provider",
+      homepage_url: "https://github.com/meltwater/confex_config_provider"
     ]
   end
 
@@ -21,8 +26,23 @@ defmodule ConfexConfigProvider.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
+      {:distillery, "~> 2.0"},
+      {:confex, "~> 3.3"}
+    ]
+  end
+
+  defp description do
+    "ConfexConfigProvider ties together Distillery releases and Confex."
+  end
+
+  defp package do
+    [
+      name: "confex_config_provider",
+      contributors: ["Meltwater"],
+      maintainers: ["Meltwater"],
+      licenses: ["LISENSE"],
+      links: %{github: "https://github.com/meltwater/confex_config_provider"}
     ]
   end
 end
