@@ -41,7 +41,7 @@ defmodule ConfexConfigProvider.MixProject do
       name: "confex_config_provider",
       contributors: ["Meltwater"],
       maintainers: ["Meltwater"],
-      licenses: ["LISENSE"],
+      licenses: ["MIT"],
       links: %{github: "https://github.com/meltwater/confex_config_provider"}
     ]
   end
