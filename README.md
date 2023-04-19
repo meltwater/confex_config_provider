@@ -39,3 +39,8 @@ end
 Documentation is available at
 [https://hexdocs.pm/confex_config_provider](https://hexdocs.pm/confex_config_provider).
 
+Ownership
+=========
+
+This repository is maintained by [Team Haven](mailto:all.haven@meltwater.com).
+If you need to make changes to or have any ideas for improvement at this, please coordinate with them.
